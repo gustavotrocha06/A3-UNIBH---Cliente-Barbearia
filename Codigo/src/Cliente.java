@@ -11,6 +11,7 @@ private int idade;
 private String email;
 private String cpf;
 private LocalDate dataNascimento;
+private int id;
 
 //Construtor
 public Cliente(){
@@ -22,7 +23,8 @@ public Cliente(){
     this.dataNascimento = LocalDate.of(2000, 1, 1);
 }
 
-public Cliente(String nome, String telefone, int idade, String email, String cpf, LocalDate dataNascimento){
+public Cliente(int id, String nome, String telefone, int idade, String email, String cpf, LocalDate dataNascimento){
+    this.id = id;
     this. nome = nome;
     this.telefone = telefone;
     this.idade = idade;
@@ -32,6 +34,11 @@ public Cliente(String nome, String telefone, int idade, String email, String cpf
 }
 
 //Setters e Getters
+
+public int getID(){
+    return id;
+}
+
 public void setNome(String nome){
     this.nome = nome;
 }
@@ -81,30 +88,8 @@ public LocalDate getDataNascimento(){
 }
 
 //Método
-public String conversor(){
-    return nome + ";" + idade;
+public String toString(){
+    return id + ";" + nome + ";" + idade + telefone + ";" + "email" + ";" + cpf + ";" + dataNascimento;
 }
-
-public static Cliente leitorConversor(String linha){
-    String[] parte = linha.split(";");
-    String nome = parte[0];
-    String telefone = parte[1];
-    int idade = Integer.parseInt(parte[2]);
-    String email = parte[3];
-    String cpf = parte[4];
-    LocalDate dataNascimento =LocalDate.parse(parte[5]);
-    return new Cliente();
-
-}
-
-
-
-
-
-
-
-
-
-
 
 }
